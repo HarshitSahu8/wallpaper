@@ -1,0 +1,47 @@
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1% ;
+    justify-content: center;
+    padding: 0px 1rem;
+}
+.desc{
+    visibility: hidden;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+    padding: 0.5rem;
+}
+.image{
+    padding: 1%;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+}
+.card:hover .desc{
+    visibility: visible; 
+    transition-delay: 5s;
+}
+.btnSet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.pageNo{
+    transform: translateY(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+}
