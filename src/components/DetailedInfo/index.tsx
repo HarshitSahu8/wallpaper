@@ -48,7 +48,7 @@ function DetailedInfo() {
               <b>height:</b> {data.height}
             </p>
           </div>
-          <Button onclick={() => history.goBack()} label="Go Back" />
+          <Button onclick={() => history.goBack()} btnText="Go Back" />
         </div>
       </div>
     </>

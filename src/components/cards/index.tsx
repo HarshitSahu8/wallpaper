@@ -58,13 +58,13 @@ const Cards = () => {
               ))}
             </div>
             <div className="btnSet">
-              <Button onclick={() => setCounter(counter - 1)} label={"<"} />
+              <Button onclick={() => setCounter(counter - 1)} btnText={"<"} />
               {counter < 1 ? (
                 <div className="pageNo">{1}</div>
               ) : (
                 <div className="pageNo">{counter}</div>
               )}
-              <Button onclick={() => setCounter(counter + 1)} label={">"} />
+              <Button onclick={() => setCounter(counter + 1)} btnText={">"} />
             </div>
           </Route>
         </Switch>

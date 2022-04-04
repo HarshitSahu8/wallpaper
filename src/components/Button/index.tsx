@@ -1,15 +1,14 @@
-import React from "react";
 import "./styles.css";
 
 type ButtonProps = {
-  onclick?: any;
-  label: string;
+  onclick: any;
+  btnText: string;
 };
-const Button = ({ onclick, label }: ButtonProps) => {
+const Button = ({ onclick, btnText }: ButtonProps) => {
   return (
     <>
       <button className="btn" onClick={onclick}>
-        {label}
+        {btnText}
       </button>
     </>
   );
