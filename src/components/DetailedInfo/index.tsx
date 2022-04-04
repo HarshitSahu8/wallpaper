@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./styles.css";
+import { useHistory } from "react-router-dom";
+import Button from "../Button";
 
 type responseData = {
   id: string;
@@ -13,6 +15,7 @@ type responseData = {
 };
 
 function DetailedInfo() {
+  const history = useHistory();
   const [data, setData] = useState({} as responseData);
   const { id }: any = useParams();
   const getData = async (url: string) => {
@@ -45,6 +48,7 @@ function DetailedInfo() {
               <b>height:</b> {data.height}
             </p>
           </div>
+          <Button onclick={() => history.goBack()} label="Go Back" />
         </div>
       </div>
     </>

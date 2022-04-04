@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 type ButtonProps = {
-  onclick: any;
+  onclick?: any;
   label: string;
 };
 const Button = ({ onclick, label }: ButtonProps) => {
