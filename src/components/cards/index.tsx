@@ -32,14 +32,14 @@ const CardUI = () => {
     <>
       <div className="wrapper">
         {data.map((wallpaper: any) => (
-          <Link className="link" to={`/Detail/${wallpaper.id}`}>
+          <Link to={`/Detail/${wallpaper.id}`}>
             <div className="card">
               <div>
                 <img className="image" src={wallpaper.download_url} alt="img" />
               </div>
               <h1>{wallpaper.author}</h1>
               <div>
-                <p className="last">
+                <p className="desc">
                   {wallpaper.id === lastTwoItem[0] ||
                   wallpaper.id === lastTwoItem[1] ? (
                     <p>{`I am the chosen one ${wallpaper.id}`}</p>
@@ -50,9 +50,9 @@ const CardUI = () => {
           </Link>
         ))}
       </div>
-      <div className="footer">
+      <div className="btnSet">
         <Button onclick={() => setCount(count - 1)} btnText="Prev" />
-        <p>{`Page ${count}`}</p>
+        <p className="pageNo">{`Page ${count}`}</p>
         <Button onclick={() => setCount(count + 1)} btnText="Next" />
       </div>
     </>
