@@ -1,58 +1,53 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import "./styles.css";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import Button from "../Button";
 
-type responseData = {
+type detailedInfo = {
   id: string;
-  author: string;
-  url: string;
   download_url: string;
-  width: number;
-  height: number;
+  data: any;
+  author: string;
+  label: string;
+  height: string;
+  width: string;
 };
-
-function DetailedInfo() {
+const DetailedInfo = () => {
+  const [data, setData] = useState({} as detailedInfo);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams<detailedInfo>();
   const history = useHistory();
-  const [data, setData] = useState({} as responseData);
-  const { id }: any = useParams();
-  const getData = async (url: string) => {
+
+  const fetchData = async (url: string) => {
     try {
-      const response = await axios.get(url);
+      const response: any = await axios.get(url);
       setData(response.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getData(`https://picsum.photos/id/${id}/info`);
+    fetchData(`https://picsum.photos/id/${id}/info`);
   }, [id]);
 
-  return (
-    <>
-      <div className="wrapper">
-        <div className="imageWrapper">
-          <img src={data.download_url} alt="" className="image" />
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-          <div style={{}}>
-            <p>
-              <b>Author:</b> {data.author}
-            </p>
-            <p>
-              <b>width:</b> {data.width}
-            </p>
-            <p>
-              <b>height:</b> {data.height}
-            </p>
-          </div>
-          <Button onclick={() => history.goBack()} btnText="Go Back" />
-        </div>
+  return (
+    <div className="wrapper">
+      <div className="imageWrapper">
+        <img className="image" src={data.download_url} alt="img" />
+        <p>{`Author : ${data.author}`}</p>
+        <p>{`width : ${data.width}`}</p>
+        <p>{`height : ${data.height}`}</p>
+        {/* {console.log(data)} */}
+        <Button onclick={() => history.goBack()} btnText="Back" />
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default DetailedInfo;

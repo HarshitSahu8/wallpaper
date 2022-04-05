@@ -2,9 +2,7 @@
     display: flex;
 }
 .imageWrapper{
-    display:flex;
-    flex-direction: column;
-    align-items: center;    
+    display:grid;
 }
 .image{
     width: 500px; 
